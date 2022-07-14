@@ -1,7 +1,9 @@
 import "./App.css";
-import Jobs from "./Jobs";
+import Heading from "./Heading";
 import ApplicationSubmissionApi from "./api";
 import { useState, useEffect } from "react";
+import JobsCard from "./JobsCard";
+import Search from "./Search";
 
 function App() {
   const [jobs, setJobs] = useState("");
@@ -16,7 +18,13 @@ function App() {
     getAvailableJobs();
   }, []);
 
-  return <div className="App">{jobs && <Jobs jobs={jobs} />}</div>;
+  return (
+    <div className="App">
+      <Heading />
+      <Search />
+      {jobs && <JobsCard jobs={jobs} />}
+    </div>
+  );
 }
 
 export default App;

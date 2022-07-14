@@ -1,18 +1,11 @@
 import JobsCard from "./JobsCard";
 
 function Jobs({ jobs }) {
+  console.log("In Jobs", jobs);
   return (
     <div>
-      {jobs.map((job) => (
-        <JobsCard
-          key={job.role}
-          client_name={job.client_name}
-          poc={job.poc}
-          email={job.email}
-          role={job.role}
-          skills={job.skills}
-          quantity={job.quantity}
-        />
+      {jobs.jobs.map((job) => (
+        <JobsCard />
       ))}
       ;
     </div>

@@ -1,0 +1,20 @@
+.Searchinput {
+  text-align: center;
+  display: inline-block;
+}
+.Searchinput input {
+  width: 300px;
+  height: 40px;
+  margin-left: 5rem;
+  margin-top: 2rem;
+}
+
+.SearchButton {
+  text-align: center;
+  color: white;
+  background-color: rgb(66, 182, 218);
+  border: none;
+  width: 5rem;
+  height: 2.6rem;
+  border-radius: 50px;
+}
