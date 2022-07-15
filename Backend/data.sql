@@ -7,18 +7,8 @@ CREATE DATABASE JobApp;
 DROP TABLE IF EXISTS clients;
 DROP TABLE IF EXISTS users;
 
-CREATE TABLE users(
-    id SERIAL PRIMARY KEY,
-    first_name TEXT Not NULL,
-    last_name TEXT NOT NULL,
-    email TEXT,
-    phone_num INTEGER,
-    address TEXT,
-    resume TEXT
-
-);
-
 CREATE TABLE clients(
+    job_id SERIAL PRIMARY KEY,
     client_name TEXT,
     poc TEXT,
     email TEXT,
@@ -37,3 +27,14 @@ VALUES
 ('PWC', 'Eliza Cath','Eliz@datapiper.com', 'SnowFlak Data Engineer', 'Low', 1, 'JD' ),
 ('PWC', 'Maria Rodriguez', 'M.RD43@datapiper.com', 'Software Developer', 'High', 1, 'Java Springborad kubernetes Cloud API microSevices');
 
+CREATE TABLE users(
+    id SERIAL PRIMARY KEY,
+    first_name TEXT Not NULL,
+    last_name TEXT NOT NULL,
+    email TEXT,
+    phone_num INTEGER,
+    address TEXT,
+    resume TEXT,
+    job_id INTEGER REFERENCES clients
+
+);
