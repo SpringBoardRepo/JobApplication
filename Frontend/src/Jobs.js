@@ -4,24 +4,23 @@ import { useState, useEffect } from "react";
 import Search from "./Search";
 import Heading from "./Heading";
 function Jobs() {
-  const [jobs, setJobs] = useState("");
+  const [jobList, setJobList] = useState("");
 
   useEffect(() => {
-    async function getAvailableJobs() {
-      const res = await ApplicationSubmissionApi.getAllJobs();
-      console.log(res.data);
-      setJobs(res.data);
-    }
-
     getAvailableJobs();
   }, []);
 
-  console.log("In Jobs", jobs);
+  async function getAvailableJobs(role) {
+    const res = await ApplicationSubmissionApi.getAllJobs(role);
+    setJobList(res.data);
+  }
+  // if (!jobList) return "Loading...";
+
   return (
     <div>
       <Heading />
-      <Search />
-      {jobs && <JobsCard jobs={jobs} />};
+      <Search search={getAvailableJobs} />
+      {jobList ? <JobsCard jobs={jobList} /> : <p>No results found</p>}
     </div>
   );
 }
