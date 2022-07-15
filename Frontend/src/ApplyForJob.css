@@ -1,0 +1,52 @@
+.card {
+  background-color: #f4f4f5 !important;
+  height: 500px;
+  width: 50%;
+  margin: auto;
+  margin-top: 2rem;
+  padding: 30px 27px 9px 12px;
+}
+label {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 18px;
+  color: #333;
+  height: 20px;
+  width: 200px;
+  margin-top: 10px;
+  margin-left: 0px;
+  text-align: right;
+  clear: both;
+  float: left;
+  margin-right: 15px;
+}
+input {
+  height: 37px;
+  width: 350px;
+  border: 1px solid rgb(148, 144, 144);
+  margin: 10px !important;
+  float: left;
+  border-radius: 15px;
+  padding: 12px;
+}
+
+.title {
+  margin-top: 1.5rem;
+  color: blue;
+  font-style: italic;
+  font-family: cursive;
+  font-weight: bold;
+}
+.astreix {
+  color: red;
+}
+.SubmitButton {
+  background-color: #07b2f0 !important;
+  border-radius: 20px !important;
+  border: aquamarine;
+  border: aquamarine;
+  width: 180px;
+  height: 40px;
+  color: white;
+  margin-left: 8rem;
+  margin-top: 2rem;
+}

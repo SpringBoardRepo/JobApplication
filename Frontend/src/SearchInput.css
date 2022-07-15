@@ -2,11 +2,11 @@
   text-align: center;
   display: inline-block;
 }
-.Searchinput input {
+.Searchinput {
   width: 300px;
-  height: 40px;
+  height: 42px;
   margin-left: 5rem;
-  margin-top: 2rem;
+  margin-top: 5rem;
 }
 
 .SearchButton {
@@ -17,4 +17,5 @@
   width: 5rem;
   height: 2.6rem;
   border-radius: 50px;
+  margin-top: -3.1rem;
 }

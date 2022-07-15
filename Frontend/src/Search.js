@@ -13,7 +13,7 @@ function Search() {
         />
       </FormGroup>
       <Button className="SearchButton" color="primary">
-        Submit
+        Search
       </Button>
     </Form>
   );
