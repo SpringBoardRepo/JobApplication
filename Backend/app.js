@@ -10,19 +10,17 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get("/jobs", async function (req, res) {
   try {
-    const jobs = await Jobs.findAll();
+    const q = req.query;
+    const jobs = await Jobs.findAll(q);
     return res.json({ jobs });
   } catch (error) {
-    console.err(error);
+    console.error(error);
   }
 });
 
 app.post("/jobs/apply/:id", async function (req, res) {
   try {
     const jobId = +req.params.id;
-    const { first_name } = req.body;
-    console.log(first_name);
-    console.log(req.body);
     const job = await Jobs.applyForJob(req.body, jobId);
     return res.status(201).json({ job });
   } catch (error) {

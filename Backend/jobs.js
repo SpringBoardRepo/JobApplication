@@ -1,10 +1,22 @@
 const db = require("./db");
 
 class Jobs {
-  static async findAll() {
-    const result = await db.query(`SELECT * FROM clients`);
-    console.log(result);
-    return result.rows;
+  static async findAll(searchFilter = {}) {
+    const { role } = searchFilter;
+
+    let query = `SELECT * FROM clients`;
+
+    let whereExpressions = [];
+    let queryValues = [];
+
+    if (role) {
+      queryValues.push(`%${role}%`);
+      whereExpressions.push(`role ILIKE $${queryValues.length}`);
+    }
+
+    query += "ORDER BY role";
+    const companiesRes = await db.query(query, queryValues);
+    return companiesRes.rows;
   }
 
   static async applyForJob({
@@ -16,7 +28,6 @@ class Jobs {
     resume,
     job_id,
   }) {
-    console.log("Name", first_name);
     const result = await db.query(
       `INSERT INTO users (first_name,
                             last_name,
